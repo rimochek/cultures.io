@@ -1,4 +1,3 @@
-import { usePathname } from "next/navigation"
 import type { Metadata } from "next"
 import Header from "@/components/Header"
 import { Geist, Geist_Mono } from "next/font/google"

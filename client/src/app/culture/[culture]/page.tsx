@@ -22,8 +22,12 @@ export default function CountryPage() {
     async function fetchData() {
       try {
         const [cultureRes, descRes] = await Promise.all([
-          fetch(`http://localhost:5000/api/culture?country=${culture}`),
-          fetch(`http://localhost:5000/api/culture/desc?country=${culture}`),
+          fetch(
+            `${process.env.NEXT_PUBLIC_API_URL}/api/culture?country=${culture}`
+          ),
+          fetch(
+            `${process.env.NEXT_PUBLIC_API_URL}/api/culture/desc?country=${culture}`
+          ),
         ])
 
         const cultureData = await cultureRes.json()
