@@ -8,7 +8,7 @@ export default function Example() {
   const [isFocus, setIsFocus] = useState(false)
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState("")
-  const [results, setResults] = useState([])
+  const [results, setResults] = useState<string[]>([])
   const [mouseOnList, setMouseOnList] = useState(false)
 
   const router = useRouter()

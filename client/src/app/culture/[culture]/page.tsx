@@ -7,7 +7,7 @@ import { motion } from "framer-motion"
 
 export default function CountryPage() {
   const params = useParams()
-  const culture = decodeURI(params?.culture)
+  const culture = decodeURI(String(params?.culture))
   const [countryData, setCountryData] = useState({
     name: culture,
     description: "Loading...",
@@ -41,7 +41,12 @@ export default function CountryPage() {
             ? Object.values(cultureData[0].languages).join(", ")
             : "Unknown",
           currency: cultureData[0]?.currencies
-            ? Object.entries(cultureData[0].currencies).map(
+            ? Object.entries(
+                cultureData[0].currencies as Record<
+                  string,
+                  { name: string; symbol: string }
+                >
+              ).map(
                 ([code, { name, symbol }]) => `${code} - ${name} (${symbol})`
               )[0]
             : "Unknown",
