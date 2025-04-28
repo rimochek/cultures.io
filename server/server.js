@@ -3,10 +3,11 @@ import express from "express"
 import cors from "cors"
 
 const app = express()
-const PORT = 5000
+const PORT = process.env.PORT || 5000
 
 app.use(cors())
 app.use("/api", cultureRouter)
+
 app.get("/api/home", (req, res) => {
   res.json({ message: "hello world!" })
 })
